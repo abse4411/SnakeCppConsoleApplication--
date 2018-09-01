@@ -13,12 +13,6 @@ Control::Control(uint32_t delay, char bd, unsigned int h, unsigned int w, char m
 	info.bVisible = false;
 	SetConsoleCursorInfo(handle, &info);
 }
-
-bool Control::is_game_over()
-{
-	return false;
-}
-
 void Control::refresh()
 {
 	map.fill(map_fill);
