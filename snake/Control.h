@@ -24,7 +24,6 @@ public:
 		unsigned int s_x = 5, unsigned int s_y = 5, Direction d = R, unsigned int len = 2, char s_fill = '@',
 		unsigned int f_x = 5, unsigned int f_y = 6, char f_fill = '#'
 	);
-	virtual void reset();
 	virtual void refresh();
 	State get_state()const;
 	virtual unsigned int run();

@@ -14,9 +14,9 @@ Control::Control(uint32_t delay, char bd, unsigned int h, unsigned int w, char m
 	SetConsoleCursorInfo(handle, &info);
 }
 
-void Control::reset()
+bool Control::is_game_over()
 {
-	snake.reset(snake_x, snake_y, snake_d, snake_len);
+	return false;
 }
 
 void Control::refresh()
@@ -44,7 +44,7 @@ unsigned int Control::run()
 
 	system("cls");
 	if (state == Start)
-		reset();
+		snake.reset(snake_x, snake_y, snake_d, snake_len);
 	refresh();
 	pause(Pause);
 	while (state == Working)
@@ -92,6 +92,13 @@ unsigned int Control::run()
 			}
 			if (is_press_dirkey)
 			{
+				if (map.is_out(snake.get_head()) || snake.is_cross())
+				{
+					pause(Start);
+					system("pause");
+					state = Start;
+					return score;
+				}
 				counter = 0;
 				is_press_dirkey = false;
 				if (snake.get_head() == food.get_position())
