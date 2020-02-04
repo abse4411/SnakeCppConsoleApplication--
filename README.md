@@ -2,4 +2,4 @@
 
 A simple snake game
 
-Mail:shen_zhifeng@outlook.com
+E-mail:shen_zhifeng@outlook.com
